@@ -138,7 +138,7 @@ class Lambdasian {
         + `demo` receives a `subject` string as an argument and returns the phrase 'Today we are learning about {subject}' where subject is the param passed in.
         + `grade` receives a `student` object and a `subject` string as arguments and returns '{student.name} receives a perfect score on {subject}'
 */
-class Instructor extends Lamdasian {
+class Instructor extends Lambdasian {
   constructor(teacher) {
     super(teacher);
     this.specialty = teacher.specialty;
@@ -170,7 +170,7 @@ class Instructor extends Lamdasian {
         + `PRAssignment` a method that receives a subject as an argument and returns `student.name has submitted a PR for {subject}`
         + `sprintChallenge` similar to PRAssignment but returns `student.name has begun sprint challenge on {subject}`
 */
-class Student extends Lamdasian {
+class Student extends Lambdasian {
   constructor(student) {
     super(student);
     this.previousBackground = student.previousBackground;
@@ -204,8 +204,20 @@ class Student extends Lamdasian {
         + `standUp` a method that takes in a slack channel and returns `{name} announces to {channel}, @channel standy times!`
         + `debugsCode` a method that takes in a student object and a subject and returns `{name} debugs {student.name}'s code on {subject}`
 */
-class ProjectManager {
+class ProjectManager extends Instructor {
+  constructor(pm) {
+    super(pm);
+    this.gradClassName = pm.gradClassName;
+    this.favInstructor = pm.favInstructor;
+  }
 
+  standUp (channel) {
+    return `${this.name} announces to ${channel}, @channel standy times!`;
+  }
+
+  debugsCode(Student, subject) {
+    return `${this.name} debugs ${Student.name}'s code on ${subject}`
+  }
 }
 
 /*
